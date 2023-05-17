@@ -24,8 +24,22 @@ const Header = () => {
                         <a className="btn btn-ghost normal-case text-xl"><Link to="/register">Register</Link></a>
                     </div>
                     <div className='mx-2'>
-                        <a className="btn btn-ghost normal-case text-xl"><Link to="/login">Login</Link></a>
+                        <a className="btn btn-ghost normal-case text-xl"><Link to="/orders">Orders</Link></a>
                     </div>
+                    {
+                        user &&
+                        <div className='mx-2'>
+                            <a className="btn btn-ghost normal-case text-xl"><Link to="/profile">Profile</Link></a>
+                        </div>
+                    }
+                    {
+                        user ? <><span className='mx-3'>{user.email}</span>
+                            <button onClick={handleLogOut} className='btn btn-xs'>Sign Out</button>
+                        </> :
+                            <div className='mx-2'>
+                                <a className="btn btn-ghost normal-case text-xl"><Link to="/login">Login</Link></a>
+                            </div>
+                    }
                 </div>
             </div>
         </nav>
